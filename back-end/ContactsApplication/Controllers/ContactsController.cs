@@ -24,9 +24,14 @@ namespace ContactsApplication.Controllers
 
         // GET: api/Contacts/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public ActionResult<Contact> Get(int id)
         {
-            return "value";
+            var contact = _contactsService.GetContact(id);
+            if (contact == null)
+            {
+                return NotFound();
+            }
+            return Ok(contact);
         }
 
         // POST: api/Contacts
