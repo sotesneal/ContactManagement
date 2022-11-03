@@ -8,7 +8,7 @@ namespace ContactsApplication.Services
 {
     public interface IContactsService
     {
-        IEnumerable<Contact> GetContacts();
+        Task<IEnumerable<Contact>> GetContacts();
         Contact GetContact(int id);
         void AddContact(Contact contact);
         void UpdateContact(Contact contact);
